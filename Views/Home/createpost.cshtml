@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "createpost";
+    
+}
+@using MvcApplication6.Models
+<html>
+<head>
+
+    <title>title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body style="background-color:#1d5362">
+    <nav class=" navbar navbar-inverse navbar.fixed.top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Ad Posting</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/Home">Home</a></li>
+            <li class="active"><a href="/Home/Contactus">Contact us</a></li>
+            <li class="active"><a href="/Home/Edite">Update Profile</a></li>
+            <li class="active"><a href="/Home/AddNewPost">Add Post</a></li>
+            @*<li class="active"><a href="">Delete Post</a></li>
+                <li class="active"><a href="">Visite Post</a></li>*@
+            <li class="active"><a href="/Home/Logout">Log out</a></li>
+        </ul>
+        @*<form class="navbar-form navbar-left pull-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="search" />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>*@
+    </div>
+    </nav>
+    <div class="jumbotron" style="background-color:#57b0c1">
+        <div class="row">
+            <div class="container text-center">
+
+                <h3 style="color:black"><strong>Post Free Add</strong></h3>
+                <p style="color:black">Here you can create Post and communicate with others Who are interested to Buy your products</p>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.intellisense.js"></script>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+
+                <form action="/Home/SearchRange" class="form-inline" method="post">
+                    <label>Search in Range</label><br />
+                    <input type="number" class="form-control" placeholder="Search by price" name="range" min="0" />
+                    <input type="submit" value="Search" class="btn btn-primary">@*<span class=" glyphicon glyphicon-search"></span>*@
+                </form>
+                <a href="/Home/createpost" class="list-group-item active" style="font-size:large">Posts Store</a>
+                @foreach (category x in Session["categories"] as List<category>)
+                {
+                    <a href="/Home/GetCategory/@x.categoyr_id" class="list-group-item" style="font-size:large">@x.categoryNamae</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-offset-3">
+            <div class="col-md-12">
+                @foreach (post p in Session["postList"] as List<post>)
+                {
+                    <div class="col-md-4">
+                        <a href="/Home/ShowPost/@p.post_id">
+                            <img src="~/Images/@p.ImagePath" class="img-thumbnail" />
+                            <label>Price: @p.prize</label>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+    @*<script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="~/Content/bootstrap.min.js"></script>
+</body>
+</html>

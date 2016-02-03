@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "showpost";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MvcApplication6.Models.post
+@using MvcApplication6.Models
+<html>
+<head>
+    <title>
+
+    </title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class=" container">
+        <h2>@Model.tilte</h2>
+        <div>
+            <img src="~/Images/@Model.ImagePath" class="thumbnail" /> @*width="300"*@
+            <strong><a href="/Admin/DeletePost/@Model.post_id">Delete Post</a></strong>
+
+
+
+            <h6>Price : @Model.prize</h6>
+        </div>
+        <div>
+            <p>Catagory:@Model.category</p>
+        </div>
+        <h3><strong>Comments:</strong></h3>
+        <div>
+            @foreach (Comment c in Session["commentList"] as List<Comment>)
+            {
+                <div class="col-md-8">
+                    <pre>@c.comments</pre>
+                    <p>By @c.userse.firstName @c.userse.lastName </p>
+
+                </div>
+
+            }
+        </div>
+        <br />
+        <div class="col-md-8">
+            <p>Add new Commment</p>
+            <form action="/Home/SaveComment">
+                <input hidden value="@(((userse)Session["user"]).Id)" name="userId" />
+                <input hidden value="@Model.post_id" name="postId" />
+
+                <textarea rows="4" style="width:740px;height:50px" name="comments" required></textarea>
+                <br>
+                <br>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+    </div>
+    <script src="~/Content/bootstrap.js"></script>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Content/npm.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+﻿@model MvcApplication6.Models.Comment
+
+<div class="col-md-8">
+    <pre>@Model.comments</pre>
+    <p style="color:black">By @Model.userse.username </p>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#commentArea").val("");
+    });
+</script>

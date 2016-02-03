@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "viewfun";
+}
+@using MvcApplication6.Models;
+@model List<userse>
+<body style="background-color:#1d5362">
+
+<center><div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    <small>View And Delete Data</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div></center>
+<center><h2>User Data</h2></center>
+<center>
+    <table border="1" style="margin-top:60px">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>user Name</th>
+            <th>email</th>
+            <th>Password</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.firstName</td>
+                <td>@u.middleName</td>
+                <td>@u.lastName</td>
+                <td>@u.username</td>
+                <td>@u.email</td>
+                <td>@u.password</td>
+                <td><a href="DeleteUser?id=@u.Id">Delete</a><br /></td>
+            </tr>
+        }
+    </table>
+</center>
+</body>

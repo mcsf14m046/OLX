@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Signup</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+</head>
+<body style="background-color:#1d5362">
+    <nav class="navbar navbar-inverse navbar.fixed.top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ad Posting</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Home">Home</a></li>
+                <li><a href="/Home/about">About</a></li>
+                <li class="active"><a href="/Home/Contactus">Contact us</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+    <div class="jumbotron" style="background-color: #57b0c1;">
+        <div class="container text-center">
+            <h1 style="color:black">Add Posting Sign Up</h1>
+            <h3 style="color:black">Register Yourself and Enjoy Our Services</h3>
+        </div>
+    </div>
+    <div class="container" style="background-color:#1d5362">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Sign up </strong></h3>
+                    <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" action="SignUpFun" method="post">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="firstName" id="first_name" class="form-control" placeholder="First Name" tabindex="1">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="middleName" id="middle_name" class="form-control" placeholder="Middle Name" tabindex="1">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="lastName" id="last_name" class="form-control " placeholder="Last Name" tabindex="2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="username" id="display_name" class="form-control " placeholder="User  Name" tabindex="3">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-control " placeholder="Email Address" tabindex="4">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="5">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control " placeholder="Confirm Password" tabindex="6">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-success">Submit</button>
+
+                        <hr style="margin-top:10px;margin-bottom:10px;">
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">Copyright © 2016 AdPost.pk. All rights reserved. Developed by <a href="#" target="_blank"><span style="color: white;">Jhanzaib Pervaiz</span></a></div>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Content/jquery-1.11.3.js"></script>
+    <script src="~/Content/jquery.min.js"></script>
+</body>
+</html>

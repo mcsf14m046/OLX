@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sidebar.com" />
+    
+    <style>
+        body{
+            border-image-repeat:stretch;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar.fixed.top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ad Posting</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Home">Home</a></li>
+                <li><a href="/Home/about">About</a></li>
+                <li class="active"><a href="/Home/Contactus">Contact us</a></li>
+                @*<li class="active"><a href=" Home/Signup">Sign up</a></li>*@
+                <li class=""><a href="/Home/Login">Log in</a></li>
+            </ul>
+            @*<form class="navbar-form navbar-left pull-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="search" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>*@
+        </div>
+    </nav>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script src="~/jquery-1.12.0.js"></script>
+    <script src="~/Content/bootstrap.js"></script>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Content/npm.js"></script>
+</body>
+</html>

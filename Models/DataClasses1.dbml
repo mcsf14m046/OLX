@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.userse" Member="userses">
+    <Type Name="userse">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="middleName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="role" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="userse_Comment" Member="Comments" ThisKey="Id" OtherKey="userID" Type="Comment" />
+      <Association Name="userse_post" Member="posts" ThisKey="Id" OtherKey="user_id" Type="post" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comments" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="comment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="postID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="comments" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="userse_Comment" Member="userse" ThisKey="userID" OtherKey="Id" Type="userse" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="post_Comment" Member="post" ThisKey="postID" OtherKey="post_id" Type="post" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.category" Member="categories">
+    <Type Name="category">
+      <Column Name="categoyr_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="categoryNamae" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="category_post" Member="posts" ThisKey="categoyr_id" OtherKey="catagoryid" Type="post" />
+    </Type>
+  </Table>
+  <Table Name="dbo.post" Member="posts">
+    <Type Name="post">
+      <Column Name="post_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tilte" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[like]" Member="like" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="prize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="catagoryid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImagePath" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="post_Comment" Member="Comments" ThisKey="post_id" OtherKey="postID" Type="Comment" />
+      <Association Name="category_post" Member="category1" ThisKey="catagoryid" OtherKey="categoyr_id" Type="category" IsForeignKey="true" />
+      <Association Name="userse_post" Member="userse" ThisKey="user_id" OtherKey="Id" Type="userse" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

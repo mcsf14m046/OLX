@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "AddPost";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using MvcApplication6.Models;
+
+
+@model List<category>
+<html>
+<head>
+    <title>title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="background-color:#57b0c1">
+    <nav class="navbar navbar-inverse navbar.fixed.top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ad Posting</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Home">Home</a></li>
+                <li><a href="/Home/about">About</a></li>
+                <li class="active"><a href="/Home/Contactus">Contact us</a></li>
+            </ul>
+            @*<form class="navbar-form navbar-left pull-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="search" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>*@
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-sm" style="background-color:#1d5362">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1" style="color:black">
+                        Add Post <small>Feel free</small>
+
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" style="background-color:#1d5362">
+        <form action="/Home/SavePost" method="post" enctype="multipart/form-data" style="margin-top: 100px; background-image: url('/Content/themes/base/images/images%20(9).jpg');">
+
+            <div class="center-block" style="background-color: ButtonFace; height: 500px; background-image: url('/Content/themes/base/images/images%20(9).jpg')">
+                <div class="row" style="background-color:#1d5362">
+                    <div class="col-sm-6 col-md-4 col-md-offset-4">
+                        <div class="form-group">
+                            Post Title:<input type="text" class="form-control" id="title" name="tilte" tabindex="1" /><br>
+                            Post Date:<input type="date" id="date" name="date" class="form-control" tabindex="1" /><br>
+                            Post Prize:<input type="number" id="prize" name="prize" class="form-control" tabindex="1" /><br>
+                            Add Picture:<input type="file" name="file" class="form-control" tabindex="1" /><br>
+                            <div class="row">
+                                &nbsp;&nbsp;&nbsp;<label for="sel1">Select catagory:</label>
+                                <select name="catagoryid" class="form-control" required id="sel1" style="width:auto;">
+                                    @foreach (category cat in Model)
+                                    {
+                                        <option value="@cat.categoyr_id">@cat.categoryNamae</option>
+                                    }
+
+
+                                </select>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                Post Date:<input type="date" id="date" name="date" class="form-control" tabindex="1" /><br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                Post Prize:<input type="number" id="prize" name="prize" class="form-control" tabindex="1" /><br>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                Add Picture:<input type="file" name="file" class="form-control" tabindex="1" /><br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                    </div>*@
+                <br>
+                @*<div class="row">
+                        <label for="sel1">Select catagory:</label>
+                        <select name="catagoryid" class="form-control" required id="sel1" style="width:auto;">
+                            @foreach (category cat in Model)
+                        {
+                        <option value="@cat.categoyr_id">@cat.categoryNamae</option>
+                        }
+
+
+                        </select>
+                    </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+
+                    <hr style="margin-top:10px;margin-bottom:10px;">*@
+
+            </div>
+        </form>
+    </div>
+    <script src="~/Content/bootstrap.min.js"></script>
+</body>
+
+</html>
+@*<input type="submit" />*@
